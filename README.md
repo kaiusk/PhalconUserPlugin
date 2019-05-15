@@ -1,12 +1,4 @@
-# IMPORATNT! You should switch to branch v3.0.0
-
-We have switched to facebook/graph-sdk 5.4 !
-
-```bash
-$ composer require crada/phalcon-user-plugin:^3.0
-```
-
-# Phalcon User Plugin (v 2.0)
+# Phalcon User Plugin (v 3.0)
 
 * [About](#about)
 * [Features](#features)
@@ -38,19 +30,39 @@ This is a plugin based on Vokuro ACL idea.
 
 ### <a id="installation"></a>Installation
 
-The recommended installation is via Composer. Just add the following line to your `composer.json`:
+The recommended installation is via [Composer](https://getcomposer.org/).
+
+For minor / bug releases (based on [semantic versioning](https://semver.org/)):
+```bash
+$ composer require crada/phalcon-user-plugin:^3.0.0
+```
+
+For all commits and most current version (unstable):
+```bash
+$ composer require --dev crada/phalcon-user-plugin:v3.0.0
+```
+
+For bug releases only (maximum stability):
+```bash
+$ composer require crada/phalcon-user-plugin:~3.0.0
+```
+
+Or manually by adding the following to your `composer.json`:
 
 ```json
 {
     "require": {
-        "crada/phalcon-user-plugin": "~2.0"
+        "crada/phalcon-user-plugin": "^3.0.0"
     }
 }
 ```
 
+and then updating composer:
+
 ```bash
-$ php composer.phar update
+$ composer update
 ```
+
 
 ### <a id="plug-it"></a>Plug it
 
@@ -93,21 +105,21 @@ use Phalcon\UserPlugin\Acl\Acl;
 use Phalcon\UserPlugin\Mail\Mail;
 
 $di->setShared(
-    'auth',
+    'auth'
     function() {
         return new Auth();
     }
 );
 
 $di->setShared(
-    'acl',
+    'acl'
     function() {
         return new Acl();
     }
 );
 
 $di->setShared(
-    'mail',
+    'mail'
     function() {
         return new Mail();
     }
